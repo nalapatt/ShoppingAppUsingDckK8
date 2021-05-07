@@ -1,15 +1,17 @@
 # Basic provisioning example
-- hosts: localhost
+- name: ec2 launcher
+  hosts: localhost
+  connection: local
   tasks:
     - name: launching AWS instance using Ansible
       ec2:
-          key_name: aws_instance_Ansible
+          key_name: aws_master_key
           instance_type: t2.micro
-          image: ami-0dacb0c129b49f529
+          image: ami-0747bdcabd34c712a
           region: us-east-2
+          group: default
+          vpc_subnet_id: default
           wait: yes
-          wait_timeout: 500
-          group: Ansible
           count: 1
           assign_public_ip: yes
 
