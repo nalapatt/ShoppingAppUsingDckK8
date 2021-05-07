@@ -23,5 +23,12 @@ Esc :wq to save and exit the editor
 ansible –m ping webservers ( to check if you have connection to the servers )
 
 3rd step
+Install python and boto
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python3-pip
+pip3 install boto
+
+4th step
 Play the ansible playbook
 ansible-playbook ec2instanceansible.yml
