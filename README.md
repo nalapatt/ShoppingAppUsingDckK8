@@ -8,23 +8,20 @@ Create an EC2 instance and associate an elastic IP address to it
 
 2nd step
 Ansible:
-Install Ansible on a RHEL/CentOS Linux based system
-$ sudo yum install Ansible
-Install Ansible on a Debian/Ubuntu Linux based system
-$ sudo apt-get install software-properties-common
-$ sudo apt-add-repository ppa:Ansible/Ansible
-$ sudo apt-get update
-$ sudo apt-get install Ansible
-Install Ansible using pip
-$ sudo pip install Ansible
-Once installed you can verify by Ansible –version this command.
-Python:
-$ sudo apt-get update
-$ sudo apt-get install python3.6
-You can follow this link for more details.
-Boto: (Boto is a Python package which provides an interface to AWS.)
-First, install pip
-$ sudo apt install python3-pip or
-$ yum install python-pip
-Now install boto
-$ pip install boto
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+ssh-keygen -t rsa ( just press enter for all the questions) ( it will create an ssh private key is id_rsa and a public key in id_rsa.pub) 
+cat .ssh/id_rsa.pub >> .ssh/authorized_keys ( to copy the public keys into the authorized_keys file)
+sudo vi /etc/ansible/hosts ( to configure the hosts )
+press i ( to get into insert mode)
+at the end of the file enter 
+webservers 
+public ip address of the server VM on aws
+Esc :wq to save and exit the editor
+ansible –m ping webservers ( to check if you have connection to the servers )
+
+3rd step
+Play the ansible playbook
+ansible-playbook ec2instanceansible.yml
