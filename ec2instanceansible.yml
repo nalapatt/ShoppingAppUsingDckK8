@@ -1,0 +1,21 @@
+# Basic provisioning example
+- name: Ansible test
+hosts: localhost
+tasks:
+- name: launching AWS instance using Ansible
+ec2:
+key_name: aws_instance_Ansible
+instance_type: t2.micro
+image: ami-0dacb0c129b49f529
+region: us-east-2
+wait: yes
+wait_timeout: 500
+group: Ansible
+count: 1
+vpc_subnet_id: default
+assign_public_ip: yes
+register: ec2_out
+
+- name: Assign SSH
+  wait_for: = Host={{ item.public_dns_name }} port=22 delay=60 timeout=320 state=started
+  with_items: '{{ec2_out.instances}}'
