@@ -1,7 +1,7 @@
-# Basic provisioning example
 - name: ec2 launcher
   hosts: localhost
   connection: local
+  become: False
   tasks:
     - name: launching AWS instance using Ansible
       ec2:
