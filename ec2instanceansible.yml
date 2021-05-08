@@ -8,9 +8,9 @@
           key_name: aws_master_key
           instance_type: t2.micro
           image: ami-0747bdcabd34c712a
-          region: us-east-1e
+          region: us-east-1
           group: default
-          vpc_subnet_id: default
+          vpc_subnet_id: subnet-fd21a0a2
           wait: yes
           count: 1
           assign_public_ip: yes
