@@ -73,4 +73,8 @@ ansible-playbook ec2instanceansible.yml
 - sudo apt-get install -y kubelet kubeadm kubectl
 - sudo apt-mark hold kubelet kubeadm kubectl
 
-
+# 6th step
+- Create web application frontend
+- Create database backend
+- Create Ingress services
+- 
